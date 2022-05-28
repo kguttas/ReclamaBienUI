@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Start Checkbox */
+.custom-control-label:before{
+  background-color:#c4cad1;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color: #6CC3D5;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='white' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+.custom-control-input:active~.custom-control-label::before{
+  background-color: #6CC3D5;
+}
+
+/** focus shadow pinkish **/
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before{
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem #6CC3D5; 
+}
+
+/* End Checkbox*/
+
+/****************/
+
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: calc(100vh - 72px);
+  transition: all 0.3s;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+} 
+
+#sidebar.active {
+  margin-left: -250px;
+}
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: calc(100vh - 72px);
+}
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -250px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+}
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #6CC3D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #1a2b33;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: rgb(198, 213, 115);
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #cacc6d;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #cc736d;
+}

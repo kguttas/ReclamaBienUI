@@ -1,0 +1,24 @@
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 767px) {
+    .icon-megaphone-size{
+        font-size: 24pt;
+    }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .icon-megaphone-size{
+        font-size: 16pt;
+    }
+}
+/* tablets/desktops and up ----------- */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .icon-megaphone-size{
+        font-size: 12pt;
+    }
+}
+/* large desktops and up ----------- */
+@media screen and (min-width: 1200px) {
+    .icon-megaphone-size{
+        font-size: 12pt;
+    }
+}

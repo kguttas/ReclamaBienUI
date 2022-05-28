@@ -1,0 +1,73 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { webConfig } from '../../GlobalConfig';
+import { 
+    ButtonDropdown, 
+    DropdownItem, 
+    DropdownMenu, 
+    DropdownToggle
+ } from 'reactstrap';
+ import logoHeader from '../../assets/img/logos/Logo-N-Empleos-194x55-px.png';
+
+class Header extends Component {
+
+    constructor(props) {
+        super(props);
+    
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+          dropdownOpen: new Array(1).fill(false),
+        };
+      }
+    
+      toggle(i) {
+        const newArray = this.state.dropdownOpen.map((element, index) => { return (index === i ? !element : false); });
+        this.setState({
+          dropdownOpen: newArray,
+        });
+      }
+
+    render() {
+        return (
+            <React.Fragment>
+                <div className="pull-left">
+                    
+                        <Link to={'/'} className="text-light" replace>
+                            <img src={logoHeader} alt={webConfig.contactEmail}></img>
+
+                        </Link>
+                    
+                </div>
+                <div className="pull-right d-xs-block d-sm-block  d-md-block d-lg-none d-xl-none">
+                    <div className="form-inline">
+                    <ButtonDropdown className="mr-1" isOpen={this.state.dropdownOpen[0]} toggle={() => { this.toggle(0); }}>
+                        <DropdownToggle caret color="dark">
+                            Opciones
+                        </DropdownToggle>
+                        <DropdownMenu>
+                            <DropdownItem header>Seleccione...</DropdownItem>
+                            
+                            <DropdownItem>
+                                <Link to={'/login/postulante'} className="btn btn-primary nuevo-post mr-1  w-100">Postulante</Link>
+                            </DropdownItem>
+                            
+                            <DropdownItem>
+                                <Link to={'/login/empleador'} className="btn btn-dark nuevo-post mr-1  w-100">Empleador</Link>
+                            </DropdownItem>
+                        </DropdownMenu>
+                    </ButtonDropdown>
+                        
+                    </div>
+                </div>
+                <div className="pull-right d-none d-xs-none d-sm-none  d-md-none d-lg-block d-xl-block">
+                    <div className="form-inline">
+                        <Link to={'/login/postulante'} className="btn btn-primary nuevo-post mr-1">Postulante</Link>
+                        <Link to={'/login/empleador'} className="btn btn-dark nuevo-post mr-1">Empleador</Link>
+                    </div>
+                </div>
+                </React.Fragment>
+            )
+    }
+}
+
+export default Header;
