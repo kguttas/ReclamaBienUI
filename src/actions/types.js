@@ -1,3 +1,9 @@
+// Generate documents
+export const GENERATE_DOCUMENTS_EXP_A = 'GENERATE_DOCUMENTS_EXP_A'
+
+///////////////////////////////
+
+
 export const MOSTRAR_PRODUCTOS = 'MOSTRAR_PRODUCTOS';
 export const MOSTRAR_PRODUCTO = 'MOSTRAR_PRODUCTO';
 export const AGREGAR_PRODUCTO = 'AGREGAR_PRODUCTO';

@@ -6,6 +6,7 @@ import parametersReducers from './parametersReducers';
 import jobsOffersReducers from './jobsOffersReducers';
 import cvReducers from './cvReducers';
 import jobsOffersApplicaciontReducers from './jobsOffersApplicaciontReducers';
+import GenerateDocumentsReducers from './GenerateDocumentsReducers'
 
 export default combineReducers({
     productos: productosReducers,
@@ -14,6 +15,8 @@ export default combineReducers({
     parameters: parametersReducers,
     jobsOffers: jobsOffersReducers,
     cvPostulant: cvReducers, 
-    jobsOffersApplication: jobsOffersApplicaciontReducers
+    jobsOffersApplication: jobsOffersApplicaciontReducers,
+    ////////////////
+    GenerateDocumentsReducers
 });
 

@@ -7,7 +7,16 @@ import {
     DropdownMenu, 
     DropdownToggle
  } from 'reactstrap';
- import logoHeader from '../../assets/img/logos/Logo-N-Empleos-194x55-px.png';
+import logoHeader from '../../assets/img/logos/Airbnb_Logo_Bélo.svg.png';
+ 
+///////////////////////////////
+
+const styles = {
+    divHeader: {
+        padding: '12px 15px',
+        borderBottom: '1px solid rgb(0,0,0,0.3)'
+    }
+}
 
 class Header extends Component {
 
@@ -29,16 +38,17 @@ class Header extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <div className="pull-left">
+            <div>
+                <div className="pull-left" style={{
+                    
+                }}>
                     
                         <Link to={'/'} className="text-light" replace>
-                            <img src={logoHeader} alt={webConfig.contactEmail}></img>
-
+                            <img src={logoHeader} alt={webConfig.contactEmail} height="64"></img>
                         </Link>
                     
                 </div>
-                <div className="pull-right d-xs-block d-sm-block  d-md-block d-lg-none d-xl-none">
+                {/* <div className="pull-right d-xs-block d-sm-block  d-md-block d-lg-none d-xl-none">
                     <div className="form-inline">
                     <ButtonDropdown className="mr-1" isOpen={this.state.dropdownOpen[0]} toggle={() => { this.toggle(0); }}>
                         <DropdownToggle caret color="dark">
@@ -64,9 +74,9 @@ class Header extends Component {
                         <Link to={'/login/postulante'} className="btn btn-primary nuevo-post mr-1">Postulante</Link>
                         <Link to={'/login/empleador'} className="btn btn-dark nuevo-post mr-1">Empleador</Link>
                     </div>
-                </div>
-                </React.Fragment>
-            )
+                </div> */}
+            </div>
+        )
     }
 }
 

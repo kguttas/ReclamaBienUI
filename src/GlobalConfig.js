@@ -30,7 +30,7 @@ export const webConfig = {
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     // dev code
-    webConfig.urlBaseAPI = "https://localhost:44348";
+    webConfig.urlBaseAPI = "https://localhost:7033";
     webConfig.urlImages = "https://localhost:44348/api/Files/images";
     webConfig.urlImagesNotCache = "https://localhost:44348/api/Files/imagesNotCache";
     console.log("DEVELOPMENT");

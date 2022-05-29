@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { 
-    Alert, 
-    Button,
-    Card,
-    Label,
-    FormFeedback, 
-    FormGroup, 
-    CardHeader,
-    CardBody,
-    Col,
-    Input,
-    Modal, 
-    ModalBody, 
-    ModalFooter,
-    ModalHeader, 
-    Row,
-    Jumbotron  
-} from 'reactstrap';
+<Row>
+                        <Col xs="12">
+                            <FormGroup>
+                                <Label htmlFor="firtsName">Nombre<i className="text-danger">★</i></Label>
+                                <Input type="text" id="firtsName" 
+                                    name="firtsName"
+                                    
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.firtsName}
+                                    placeholder="Ingrese su nombre..."
+                                    valid={values.firtsName !== '' && touched.firtsName}
+                                    invalid={errors.firtsName !== undefined  && touched.firtsName} ></Input>
+                                <FormFeedback className="help-block">{errors.firtsName && touched.firtsName && errors.firtsName}</FormFeedback>
+                            </FormGroup>
+                        </Col>
 import { Formik, Form as FormFormik } from 'formik';
 import { AppSwitch } from '@coreui/react';
 import CustomSelect from '../../../components/UI/CustomSelect';

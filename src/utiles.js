@@ -99,4 +99,40 @@ export function b64_to_utf8( str ) {
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
-});
+  });
+
+export function DownloadFilePost(nameFilename, fileUrl, token, dataBody=null, dispatch, actionType) {
+
+    console.log(dataBody);
+
+    // Use XMLHttpRequest instead of Jquery $ajax,
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        var a;
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            //console.log(xhttp);
+            // Trick for making downloadable link
+            a = document.createElement('a');
+            a.href = window.URL.createObjectURL(xhttp.response);
+            // Give filename you wish to download
+            a.download = nameFilename;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+			a.click();
+			
+			if (dispatch) {
+				dispatch({
+					type: actionType,
+					payload: "OK"
+				});
+			}
+        }
+    };
+    // Post data to URL which handles post request
+    xhttp.open("POST", fileUrl);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader("Authorization", "Bearer " + token);
+    // You should set responseType as blob for binary responses
+    xhttp.responseType = 'blob';
+    xhttp.send(JSON.stringify(dataBody));
+}

@@ -1,35 +1,47 @@
-import React, { Component } from 'react';
-import { Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import React from 'react'
+import { useNavigate } from "react-router-dom"
 
-class Error extends Component {
-    render() {
-        return (
-            <div className="app flex-row align-items-center">
-                <Container>
-                <Row className="justify-content-center">
-                    <Col md="6">
-                    <div className="clearfix">
-                        <h1 className="float-left display-4 mr-4">404</h1>
-                        <h4 className="pt-3">Oops! Estas perdido.</h4>
-                        <p className="text-muted float-left">No se encontró la página que busca..</p>
-                    </div>
-                    <InputGroup className="input-prepend">
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                                <i className="fa fa-search"></i>
-                            </InputGroupText>
-                        </InputGroupAddon>
-                        {/*<Input size="16" type="text" placeholder="What are you looking for?" />
-                        <InputGroupAddon addonType="append">
-                            <Button color="info">Search</Button>
-        </InputGroupAddon>*/}
-                    </InputGroup>
-                    </Col>
-                </Row>
-                </Container>
-            </div>
-        );
+import {
+  CButton,
+  CCol,
+  CContainer,
+  CFormInput,
+  CInputGroup,
+  CInputGroupText,
+  CRow,
+} from '@coreui/react'
+import CIcon from '@coreui/icons-react'
+import { cilMagnifyingGlass } from '@coreui/icons'
+
+const Error = () => {
+    
+    const navigate = useNavigate();
+
+    const coursesPage = () => {
+        navigate('/');
     }
+
+    return (
+        <div className="bg-light d-flex flex-row align-items-center" >
+            <CContainer>
+                <CRow className="justify-content-center">
+                    <CCol md={6}>
+                        <div className="clearfix">
+                            <h1 className="float-start display-3 me-4">404</h1>
+                            <h4 className="pt-3">Oops! estás perdido.</h4>
+                            <p className="text-medium-emphasis float-start">
+                                La página que buscas no se encuentra.
+                            </p>
+                            </div>
+                            <CInputGroup className="input-prepend">
+                        
+                            <CButton color="info" onClick={(e) => coursesPage()}>Ir al home</CButton>
+                        </CInputGroup>
+                    </CCol>
+                </CRow>
+            </CContainer>
+        </div>
+    )
 }
 
-export default Error;
+export default Error
