@@ -7,7 +7,7 @@ import { DownloadFilePost } from '../utiles'
   
 import axios from 'axios';
   
-export const getExperimentA = post => async dispatch => {
+export const getExperimentA = post => dispatch => {
     
     const dataBody = post
 

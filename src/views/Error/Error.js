@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
+import { webConfig }  from '../../GlobalConfig'
 
 import {
   CButton,
@@ -18,7 +19,7 @@ const Error = () => {
     const navigate = useNavigate();
 
     const coursesPage = () => {
-        navigate('/');
+        navigate(`${webConfig.subFolderURL}/`);
     }
 
     return (

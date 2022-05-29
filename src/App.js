@@ -17,9 +17,7 @@ import * as weekData from 'cldr-data/supplemental/weekData.json';// To load the 
 import React, { Component } from 'react';
 
 import { 
-    stateSite, 
-    urlRecoveryPassword,
-    urlChangePassword
+    webConfig
 } from './GlobalConfig';
 
 import Loadable from 'react-loadable';
@@ -204,7 +202,7 @@ class App extends Component {
             <Provider store={store}>
                 <BrowserRouter>
                 <Routes>
-                    <Route exact path="*" name="Home" element={<HomeLayout />} />
+                        <Route exact path={`*`} name="Home" element={<HomeLayout />} />
                     
                         {/* 404 rounte */}
                     {/* <Route exact path="*" element={<Error />} /> */}

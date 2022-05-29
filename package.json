@@ -2,7 +2,7 @@
   "name": "portalempleos",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": "/ReclamaBienUI",
   "config": {
     "coreui_library_short_version": "4.2"
   },

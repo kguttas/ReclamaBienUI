@@ -25,12 +25,41 @@ import { validate as validateRut, format as formatRut } from 'rut.js';
 // Redux
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 
+import { useEffect } from 'react'
+
 import { getExperimentA } from '../../actions/GenerateDocuments'
 
 // Syncfusion
 import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
+import { createSpinner, showSpinner, hideSpinner } from '@syncfusion/ej2-react-popups';
 
 //////////////////////////////
+
+let spinnerInstance = null;
+
+const loading = () => {
+
+    createSpinner({
+        target: spinnerInstance,
+        label: "Cargando...",
+        cssClass: "e-spin-overlay"
+    });
+
+    showSpinner(spinnerInstance);
+
+   
+
+    return(
+        <div className="container d-flex justify-content-center" style={{ height: "100vh" }}>
+            <div className="my-auto">
+                
+                <div ref={spinner => {
+                        spinnerInstance = spinner;
+                    }} id="spinner"></div>
+            </div>
+        </div>
+    )
+}
 
 const validate = (values) => {
     const errors = {}
@@ -72,8 +101,6 @@ const validate = (values) => {
         return date;
     }
 
-    console.log(values.date)
-
     if (!values.date) {
         errors.date = 'Debe seleccionar primero el mes y a continuación la fecha'
         
@@ -84,12 +111,31 @@ const validate = (values) => {
     return errors
 }
 
+let flagSpinner = false;
+
 const FormExpA = () => { 
+
+    useEffect(() => {
+
+        createSpinner({
+            target: spinnerInstance,
+            label: "Procesando...",
+            cssClass: "e-spin-overlay"
+        });
+
+        
+    }, []);
+    
 
     const { experimentA } = useSelector(state => ({
         experimentA: state.GenerateDocumentsReducers.experimentA
-      }), shallowEqual);
-
+    }));
+    
+    if (flagSpinner === true && experimentA === "OK") {
+        flagSpinner = false;
+        hideSpinner(spinnerInstance);
+    }
+    
     const dispatch = useDispatch();
     
     const formik = useFormik({
@@ -102,16 +148,25 @@ const FormExpA = () => {
         },
         validate,
         onSubmit: values => {
-            console.log(values)
+            
+            flagSpinner = true;
 
-            dispatch(getExperimentA(values))
+            showSpinner(spinnerInstance);
+
+            dispatch(getExperimentA(values));
         }
-    })
+    });
 
     return (
           
         <div className="animated fadeIn">
-                {experimentA === 'OK' ? 'Documeto generado' : null }
+
+           
+            
+            <div ref={spinner => {
+                        spinnerInstance = spinner;
+                    }} id="spinner"></div>
+            
                 <Row className="justify-content-center">
                     <Col xs="12" md="10">
                         {/* <Modal size={this.state.sizeModal} isOpen={this.state.modal} toggle={this.toggleModal} className={this.state.classNameModal + " " + this.props.className}>

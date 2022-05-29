@@ -145,11 +145,11 @@ class Principal extends Component {
             
             <Row>
                 <Col sm="6">
-                    <Link to={'/ExperimentoA'} className="text-success font-weight-bold">Experimento A <span className="glyphicon glyphicon-lock"></span></Link>
+                    <Link to={ `${webConfig.subFolderURL}/ExperimentoA` } className="text-success font-weight-bold">Experimento A <span className="glyphicon glyphicon-lock"></span></Link>
                 </Col>
 
                 <Col sm="6">
-                    <Link to={'/ExperimentoB'} className="text-danger font-weight-bold">Experimento B <span className="glyphicon glyphicon-lock"></span></Link>
+                    <Link to={ `${webConfig.subFolderURL}/ExperimentoB` } className="text-danger font-weight-bold">Experimento B <span className="glyphicon glyphicon-lock"></span></Link>
                 </Col>
             </Row>
             

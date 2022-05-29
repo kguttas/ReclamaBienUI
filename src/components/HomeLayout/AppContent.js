@@ -2,6 +2,9 @@ import React, { Suspense } from 'react'
 import { Route, Routes, Navigate} from 'react-router-dom'
 import { CContainer, CSpinner } from '@coreui/react'
 
+import { 
+  webConfig
+} from '../../GlobalConfig'
 // routes config
 import routes from '../../routes'
 
@@ -23,7 +26,7 @@ const AppContent = () => {
               )
             )
           })}
-          <Route path="*" element={<Navigate to="/Error" replace />} />
+          <Route path={`*`} element={<Navigate to="/Error" replace />} />
         </Routes>
       </Suspense>
     </CContainer>

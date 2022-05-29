@@ -2,7 +2,8 @@ import React from 'react';
 
 import { 
   urlRecoveryPassword,
-  urlChangePassword 
+  urlChangePassword,
+  webConfig
 } from './GlobalConfig';
 
 const Principal = React.lazy(() => 
@@ -54,9 +55,9 @@ const ExperimentA = React.lazy(() => import('./views/Experiments/ExperimentA'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config 
 const routes = [
-  { path: '/', exact: true, layout: ['home'], name: 'Home', element: Principal },
-  { path: '/ExperimentoA', exact: true, layout: ['home'], name: 'ExperimentA', element: ExperimentA },
-  { path: '*', exact: true, layout: ['error'],  name: 'Home', element: Error },
+  { path: `${webConfig.subFolderURL}/`, exact: true, layout: ['home'], name: 'Home', element: Principal },
+  { path: `${webConfig.subFolderURL}/ExperimentoA`, exact: true, layout: ['home'], name: 'ExperimentA', element: ExperimentA },
+  { path: `${webConfig.subFolderURL}/*`, exact: true, layout: ['error'],  name: 'Home', element: Error },
   // { path: '/lecturas/Como-Encontrar-Trabajo-por-Internet', exact: true, layout: ['home'],  name: 'Como Encontrar Empleo Durante la Pandemia Covid19', component: CampaignCovid190001 }, 
   // { path: '/buscador/oferta/:idJobOffer', exact: true, layout:['home'], name: 'Oferta de Trabajo', component:JobOffer},
   // { path: '/buscador', exact: true, layout:['home'], name: 'Buscador', component:JobsOffers},

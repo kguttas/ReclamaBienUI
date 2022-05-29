@@ -43,7 +43,7 @@ class Header extends Component {
                     
                 }}>
                     
-                        <Link to={'/'} className="text-light" replace>
+                        <Link to={`${webConfig.subFolderURL}/`} className="text-light" replace>
                             <img src={logoHeader} alt={webConfig.contactEmail} height="64"></img>
                         </Link>
                     

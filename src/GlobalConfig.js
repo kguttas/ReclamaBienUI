@@ -7,6 +7,7 @@ export const webConfig = {
     siteName: "N Empleos",
     contactEmail: "contacto@nempleos.cl",
     supportEmail: "soporte@nempleos.cl",
+    subFolderURL: "",
 
     // LOCAL
     //urlBaseAPI:        "https://localhost:44348",
@@ -37,9 +38,10 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 
 } else {
     // production code
-    webConfig.urlBaseAPI = "https://cvautoscreening.tech/NEmpleosAPI";
+    webConfig.urlBaseAPI = "https://cvautoscreening.tech/ReclamaBienApi";
     webConfig.urlImages = "https://cvautoscreening.tech/NEmpleosAPI/Files/images";
     webConfig.urlImagesNotCache = "https://cvautoscreening.tech/NEmpleosAPI/api/Files/imagesNotCache";
+    webConfig.subFolderURL = "/ReclamaBienUI";
     console.log("PRODUCTION");
 }
 
